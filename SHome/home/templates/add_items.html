@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    Item Availabilities
+{% endblock %}
+{% block content %}
+<body class="text-center">    
+    <div class="container">
+        <form method="POST" class="form-signin" style="color:white">
+            {{ form.hidden_tag() }}
+            <!-- <img class="mb-4" src="https://res.cloudinary.com/jimshapedcoding/image/upload/v1597332609/android-icon-192x192_ove2a7.png" alt=""> -->
+            <h1 class="h3 mb-3 font-weight-normal, p-3">
+                Please Enter Item information
+            </h1>
+            <br>
+            {{ form.item_name.label() }}
+            {{ form.item_name(class="form-control", placeholder="Item Name") }}
+
+            {{ form.count.label() }}
+            {{ form.count(class="form-control", placeholder="Count") }}
+            
+            {{ form.consumption.label() }}
+            {{ form.consumption(class="form-control", placeholder="consumption") }}
+
+            {{ form.description.label() }}
+            {{ form.description(class="form-control", placeholder="Description", rows=3) }}
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+<style>
+    div.container{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+</style>
+{% endblock %}

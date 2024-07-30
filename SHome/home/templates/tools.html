@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to tool list of SHome
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col"> 
+            <div class="card m-md-3" style="width: 15rem; background-color: #252525;">
+                <img style="max-width: 100%;" src="{{ url_for('static', filename='Images/dine.png') }}"" class="card-img-top img-thumbnail" /> 
+                <div class="card-body">
+                  <h5 class="card-title">Dining utility</h5>
+                  <p class="card-text">Indication of whether dining at home for certain dates of the week.</p>
+                  <a href="#" class="btn btn-primary">Quick Start</a>
+                </div>
+            </div>
+        </div>
+        <div class="col"> 
+            <div class="card m-md-3" style="width: 15rem; background-color: #252525;">
+                <img style="max-width: 100%;" src="{{ url_for('static', filename='Images/items.jpg') }}"" class="card-img-top img-thumbnail" /> 
+                <div class="card-body">
+                    <h5 class="card-title">Item availabilities</h5>
+                    <p class="card-text">Indication of whether items at home are available, including item count.</p>
+                    <a href="{{ url_for('items_page') }}" class="btn btn-primary">Quick Start</a>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+    Item Availabilities
+{% endblock %}
+{% block content %}
+<p class="m-3">Date: {{date}}</p>
+{% if not items.count() %}
+<p class="text-center m-3">There are no available item to track currently, please add one from the button below</p>
+<div class="d-grid text-center">
+    <a class="btn btn-primary text-center mx-auto"  href="{{url_for('add_items_page')}}" role="button">Add new items</a>
+</div>
+{% else %}
+
+{% for item in items %}
+    <h3 class="m-3"> {{item.name}} </h3>
+    <p class="m-3">latest recharging date: {{item.creationdate}}</p>
+    <div class="clearfix">
+        <form method="POST">
+            <span class="m-3">There are still {{item.count}} number of {{item.name}} left.</span>    
+            <input type="submit" class="btn btn-success mx-3 float-right" name={{item.name}} value="Recharge">
+        </form>
+    </div>
+    <div class="progress m-md-3 my-3" role="progressbar" aria-label="Example with label" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width: {{item.count/item.total_count*100}}%">{{item.count/item.total_count*100}}%</div>
+    </div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
